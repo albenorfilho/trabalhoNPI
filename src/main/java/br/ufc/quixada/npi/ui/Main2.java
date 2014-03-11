@@ -7,13 +7,15 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 import br.ufc.quixada.npi.model.Contato;
+import br.ufc.quixada.npi.model.Pessoa;
 import br.ufc.quixada.npi.service.ContatoService;
+import br.ufc.quixada.npi.service.PessoaService;
 
 @Component
 public class Main2 {
 	
 	@Autowired
-	private ContatoService cs;
+	private PessoaService cs;
 	
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -24,9 +26,9 @@ public class Main2 {
 			System.out.println("Não foi possível realizar a inserção");
 		}
 		
-		List<Contato> l = main.cs.findAll();
+		List<Pessoa> l = main.cs.findAll();
 
-	    for (Contato c : l) {
+	    for (Pessoa c : l) {
 	    	System.out.println(c);
 	    }
 		ctx.close();
